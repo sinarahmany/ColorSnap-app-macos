@@ -8,6 +8,8 @@ data:{
     required:true
 }
 });
+
+progress: false
 </script>
 
 <template>

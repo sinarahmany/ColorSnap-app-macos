@@ -39,7 +39,8 @@
 
 <script>
 import InputColorSection from "@/Components/ColorPicker/InputColorSection.vue";
-import { router } from '@inertiajs/vue3';
+import {router} from '@inertiajs/vue3';
+import debounce from 'lodash.debounce'
 
 
 export default {
@@ -50,8 +51,8 @@ export default {
             form: {
                 selectedColor: '#000000',
             },
-            rgb: this.calculateRGB( '#fcba03'),
-            cmyk: this.calculateCMYK( '#fcba03'),
+            rgb: this.calculateRGB('#fcba03'),
+            cmyk: this.calculateCMYK('#fcba03'),
             hex: '#fcba03',
             hsb: this.calculateHSB('#fcba03'),
             hue: this.calculateHue('#fcba03'),
@@ -59,19 +60,17 @@ export default {
         };
     },
     watch: {
-        'form.selectedColor'(newForm,oldForm)
-        {
-            if (newForm && oldForm)
-            {
-                this.submit()
+        'form.selectedColor': debounce(function(newForm, oldForm) {
+            if (newForm && oldForm) {
+                this.submit();
             }
-        }
+        }, 400),
     },
     created() {
         this.form.selectedColor = this.data
         this.rgb = this.calculateRGB(this.data)
         this.cmyk = this.calculateCMYK(this.data)
-        this.hex =  this.data
+        this.hex = this.data
         this.hsb = this.calculateHSB(this.data)
         this.hue = this.calculateHue(this.data)
         this.hsl = this.calculateHSL(this.data)
