@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Native\Laravel\Dock;
 use Native\Laravel\Facades\MenuBar;
 use Native\Laravel\Facades\Window;
 use Native\Laravel\Contracts\ProvidesPhpIni;
@@ -15,6 +16,8 @@ class NativeAppServiceProvider implements ProvidesPhpIni
      */
     public function boot(): void
     {
+
+
         MenuBar::create()
             ->route('color-picker.index')
             ->alwaysOnTop()
@@ -28,7 +31,9 @@ class NativeAppServiceProvider implements ProvidesPhpIni
                 Menu::new()
                     ->label('Color Snap')
                     ->separator()
-                    ->link('https://sinarahmannejad.com/', 'About me…')
+                    ->link('https://sinarahmannejad.com/', 'About Developer…')
+                    ->separator()
+                    ->label('version: '. config('nativephp.version'))
                     ->separator()
                     ->quit()
             );
