@@ -2,10 +2,8 @@
 
 namespace App\Providers;
 
-use Native\Laravel\Dock;
-use Native\Laravel\Facades\MenuBar;
-use Native\Laravel\Facades\Window;
 use Native\Laravel\Contracts\ProvidesPhpIni;
+use Native\Laravel\Facades\MenuBar;
 use Native\Laravel\Menu\Menu;
 
 class NativeAppServiceProvider implements ProvidesPhpIni
@@ -16,7 +14,6 @@ class NativeAppServiceProvider implements ProvidesPhpIni
      */
     public function boot(): void
     {
-
 
         MenuBar::create()
             ->route('color-picker.index')
@@ -33,7 +30,8 @@ class NativeAppServiceProvider implements ProvidesPhpIni
                     ->separator()
                     ->link('https://sinarahmannejad.com/', 'About Developer…')
                     ->separator()
-                    ->label('version: '. config('nativephp.version'))
+                    ->label('version: '.config('nativephp.version'))
+                    ->link('https://color-splash-website.vercel.app/changelog', 'Check For Update')
                     ->separator()
                     ->quit()
             );

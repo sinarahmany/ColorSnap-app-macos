@@ -32,7 +32,7 @@
         </div>
         <div>
             <hr class="mt-4 mb-1  border-gray-200"/>
-            <span class="block text-sm text-gray-500  text-center">Developed by Sina.</span>
+            <span class="block text-sm text-gray-500 text-center">Developed by Sina.</span>
         </div>
     </div>
 

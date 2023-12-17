@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import {defineProps, ref} from 'vue';
+import {ref} from 'vue';
 
 const textToCopy = ref('Text to copy');
 const isCopied = ref(false);
@@ -30,7 +30,6 @@ const copyMessage = ref('Copy to Clipboard');
 
 const props = defineProps({
     text: {
-        type: String,
         required: true,
     }
 });
